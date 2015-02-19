@@ -6,17 +6,15 @@
 
 var dateformat = require('dateformat');
 
-module.exports = function date(format, str) {
-  var dt;
+module.exports = function date(format, dt) {
+  dt = dt || 'now';
+  format = format || 'mmmm dd, yyyy';
 
-  if (typeof str === 'string') {
-    dt = new Date(str);
+  if (typeof dt === 'string' && dt !== 'now') {
+    dt = new Date(dt);
   } else {
     dt = new Date();
   }
 
-  if (typeof format !== 'string' || format === 'today') {
-    format = 'mmmm dd, yyyy';
-  }
   return dateformat(dt, format);
 };
