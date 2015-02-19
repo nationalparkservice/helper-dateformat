@@ -6,7 +6,7 @@
 
 var dateformat = require('dateformat');
 
-module.exports = function date(str, format) {
+module.exports = function date(format, str) {
   var dt;
 
   if (typeof str === 'string') {
