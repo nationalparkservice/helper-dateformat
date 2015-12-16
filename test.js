@@ -14,11 +14,14 @@ var _ = require('lodash'),
   handlebars = require('handlebars'),
   helper = require('./');
 
-function dateformat(format, dt) {
+function dateformat(format, dt, epoch) {
   dt = dt || 'now';
   format = format || 'mmmm dd, yyyy';
+  epoch = epoch || 'datestring';
 
-  if (typeof dt === 'string' && dt !== 'now') {
+  if (epoch === 'epoch') {
+    dt = new Date(parseInt(dt));
+  } else if (typeof dt === 'string' && dt !== 'now') {
     dt = new Date(dt);
   } else {
     dt = new Date();
@@ -38,6 +41,10 @@ describe('dateformat', function () {
 
   it('should return a formatted dateformat date, given a date string:', function () {
     helper('mmmm dd, yyyy', '2015-02-17T01:30:10+0000').should.eql(dateformat('mmmm dd, yyyy', '2015-02-17T01:30:10+0000'));
+  });
+
+  it('should return a formatted dateformat date, given milliseconds from epoch as a string:', function () {
+    helper('mmmm dd, yyyy, h:MM:ss TT', '945346332000', 'epoch').should.eql(dateformat('mmmm dd, yyyy, h:MM:ss TT', '1999-12-16T12:12:12+0000'));
   });
 
   it('should work as a lodash helper', function () {
