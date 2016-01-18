@@ -1,5 +1,3 @@
-# helper-dateformat [![NPM version](https://badge.fury.io/js/helper-dateformat.svg)](http://badge.fury.io/js/helper-dateformat)
-
 > Template helper for adding formatted dates using node-dateformat. Works with Handlebars, Lo-Dash, underscore, or any template engine that supports helper functions. Also compatible with verb, assemble and Template.
 
 See [node-dateformat](https://github.com/felixge/node-dateformat) for all available options.
@@ -18,7 +16,7 @@ npm test
 
 ## Register the helper
 
-> This should work with any engine, here some examples
+> This should work with any engine, here are some examples
 
 
 ### [template]
@@ -96,9 +94,9 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 ## Author
 
 **Jon Schlinkert**
- 
+
 + [github/helpers](https://github.com/helpers)
-+ [twitter/helpers](http://twitter.com/helpers) 
++ [twitter/helpers](http://twitter.com/helpers)
 
 ## License
 Copyright (c) 2014 Jon Schlinkert  

@@ -1,3 +1,5 @@
+/* globals describe, it */
+
 /*!
  * helper-dateformat <https://github.com/jonschlinkert/helper-dateformat>
  *
@@ -9,12 +11,12 @@
 
 require('should');
 
-var _ = require('lodash'),
-  date = require('dateformat'),
-  handlebars = require('handlebars'),
-  helper = require('./');
+var _ = require('lodash');
+var date = require('dateformat');
+var handlebars = require('handlebars');
+var helper = require('./');
 
-function dateformat(format, dt) {
+function dateformat (format, dt) {
   dt = dt || 'now';
   format = format || 'mmmm dd, yyyy';
 
@@ -38,6 +40,12 @@ describe('dateformat', function () {
 
   it('should return a formatted dateformat date, given a date string:', function () {
     helper('mmmm dd, yyyy', '2015-02-17T01:30:10+0000').should.eql(dateformat('mmmm dd, yyyy', '2015-02-17T01:30:10+0000'));
+  });
+
+  it('should return a formatted dateformat date, given a Unix Epoch integer:', function () {
+    var unix = new Date().getTime();
+
+    helper('mmmm dd, yyyy', unix).should.eql(dateformat('mmmm dd, yyyy', unix));
   });
 
   it('should work as a lodash helper', function () {
